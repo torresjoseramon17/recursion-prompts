@@ -23,20 +23,33 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
-  if(array.length === 0){
-  return 0;
-}else {
-  return array [0] + sum (array.slice(1));
-}
+  if (array.length === 0){
+    return 0;
+  }else{
+    return array [0] + sum (array.slice(1));
+  }
 };
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
-};
+  if(array.length === 0){
+    return 0;
+  }if(Array.isArray(array[0])){
+    return arraySum(array[0])+arraySum(array.slice(1))
+  }
+return array[0]+arraySum(array.slice(1))
+  };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-};
+  if(n === 0){
+    return true
+  }
+  if(n ===1){
+    return false
+  }
+    return isEven(Math.abs(n -2 ));
+  };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
@@ -48,7 +61,6 @@ var sumBelow = function(n) {
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
 };
-
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
